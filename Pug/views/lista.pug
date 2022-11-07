@@ -1,0 +1,22 @@
+extends layout.pug
+
+block lista
+    h2 Vista de productos
+        if existProduct
+            table(class="table")
+                thead
+                    tr
+                        th(scope="col") Nombre
+                        th(scope="col") Precio 
+                        th(scope="col") Foto
+                tbody
+                    tr
+                     each product in products
+                        td  #{product.title}
+                        td  #{product.price }
+                        td 
+                            img(src='#{product.thumbnail}' style="width: 30px; height: 30px;")
+        else 
+            div(style={background: '#f2eea2', padding: '10px', margin: '10px', borderRadius: "10px"})
+                h3 No se encontraron productos
+    a(href="/" class="btn btn-primary mb-3") Ver formulario de productos
